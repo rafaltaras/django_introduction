@@ -7,5 +7,5 @@ urlpatterns = [
    path('add/<a>/<b>', add),
    path('sub/<a>/<b>', sub),
    path('mul/<a>/<b>', mul),
-   path('div/<a>/<b>', div),
+   path('div/<a>/<b>', div)
 ]
