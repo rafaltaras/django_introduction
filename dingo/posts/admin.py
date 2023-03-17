@@ -1,3 +1,14 @@
 from django.contrib import admin
-
+from posts.models import Post, Author
 # Register your models here.
+
+class PostAdmin(admin.ModelAdmin):
+   list_display = ["id", "title", "created", "author"]
+   list_filter = ["title"]
+   search_fields = ["title", "author"]
+
+admin.site.register(Post, PostAdmin)
+
+@admin.register(Author)
+class AuthorAdmin(admin.ModelAdmin):
+   list_display = ['id', 'nick', 'email', 'author_bio']

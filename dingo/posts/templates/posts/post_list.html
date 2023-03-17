@@ -1,0 +1,17 @@
+{% extends "posts/main.html" %}
+
+{% block title %}Posts list{% endblock %}
+
+{% block content %}
+
+    <div id="header">
+        Posts list
+    </div>
+
+    <ul>
+        {% for post in posts %}
+            <li><a href="{% url "posts:details" post.id %}">{{ post.title }}</a></li>
+        {% endfor %}
+    </ul>
+    <a href="{% url "posts:post_add" %}">Add new post</a>
+{% endblock %}
