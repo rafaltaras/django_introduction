@@ -29,9 +29,9 @@ def add_post(request):
         print(author_id)
                 
         if form_post.is_valid():
-            post = Post.objects.create(**form_post.cleaned_data)
-            form_post = author_id
-            post.save()
+            data = (form_post.cleaned_data)
+            data["author_id"] = author_id
+            post = Post.objects.create(**data)
             messages.add_message(
                 request,
                 messages.SUCCESS,
