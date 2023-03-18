@@ -13,5 +13,7 @@
             <li><a href="{% url "posts:details" post.id %}">{{ post.title }}</a></li>
         {% endfor %}
     </ul>
-    <a href="{% url "posts:post_add" %}">Add new post</a>
+    <button type="button">
+        <a href="{% url "posts:post_add" %}">Add new post</a>
+    </button>
 {% endblock %}

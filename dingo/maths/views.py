@@ -77,7 +77,7 @@ def math_details(request, id):
 def results_list(request):
     if request.method == "POST":
         form = ResultForm(data=request.POST)
-
+        
         if form.is_valid():
             if form.cleaned_data['error'] == '':
                 form.cleaned_data['error'] = None

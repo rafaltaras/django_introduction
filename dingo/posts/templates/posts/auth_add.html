@@ -1,0 +1,26 @@
+{% extends "posts/main.html" %}
+
+{% block title %}Add author{% endblock %}
+
+{% block content %}
+
+    <div id="header">
+        Already added authors
+    </div>
+
+    <ul>
+        {% for a in results_auth %}
+            <li>{{ a.nick }}</li>
+        {% endfor %}
+    </ul>
+
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form_auth.as_p }}
+        <button type="button">
+            <a href="{% url "posts:post_add" %}">Add author</a>
+        </button>
+    </form>
+    
+{% endblock %}
