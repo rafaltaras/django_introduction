@@ -24,10 +24,7 @@ def posts_details(request, id):
 def add_post(request):
     if request.method == "POST":
         form_post = PostForm(data=request.POST)
-        author_id = request.POST['author']
-        print(form_post)
-        print(author_id)
-                
+        author_id = request.POST['author']               
         if form_post.is_valid():
             data = (form_post.cleaned_data)
             data["author_id"] = author_id
