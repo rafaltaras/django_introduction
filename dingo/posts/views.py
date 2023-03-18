@@ -25,6 +25,8 @@ def add_post(request):
     if request.method == "POST":
         form_post = PostForm(data=request.POST)
         author_id = request.POST['author']
+        print(form_post)
+        print(author_id)
                 
         if form_post.is_valid():
             post = Post.objects.create(**form_post.cleaned_data)
