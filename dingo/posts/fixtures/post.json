@@ -1,0 +1,24 @@
+[
+{
+    "model": "posts.post",
+    "pk": 1,
+    "fields": {
+        "title": "Post1",
+        "content": "To jest post1",
+        "created": "2023-03-17T11:24:18.342Z",
+        "modified": "2023-03-17T11:24:18.342Z",
+        "author": 1
+    }
+},
+{
+    "model": "posts.post",
+    "pk": 2,
+    "fields": {
+        "title": "Post2",
+        "content": "To jest post2",
+        "created": "2023-03-17T11:24:47.776Z",
+        "modified": "2023-03-17T11:25:57.842Z",
+        "author": 2
+    }
+}
+]

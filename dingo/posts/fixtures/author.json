@@ -1,0 +1,29 @@
+[
+{
+    "model": "posts.author",
+    "pk": 1,
+    "fields": {
+        "nick": "Harry",
+        "email": "harry@harry.com",
+        "author_bio": "to jest post"
+    }
+},
+{
+    "model": "posts.author",
+    "pk": 2,
+    "fields": {
+        "nick": "Poter",
+        "email": "poter@poter.com",
+        "author_bio": "To jest opis"
+    }
+},
+{
+    "model": "posts.author",
+    "pk": 6,
+    "fields": {
+        "nick": "Raf",
+        "email": "rafl@raf.com",
+        "author_bio": "nowy"
+    }
+}
+]

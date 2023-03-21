@@ -1,10 +1,12 @@
 from django import forms
+from posts.models import Post, Author
 
-class PostForm(forms.Form):
-    title = forms.CharField(required=False)
-    content = forms.CharField(widget=forms.Textarea, required=False)
+class PostForm(forms.ModelForm):
+    class Meta:
+        model = Post
+        fields = ["title", "content"]
 
-class AuthorForm(forms.Form):
-    nick = forms.CharField(required=False)
-    email = forms.EmailField(required=False)
-    author_bio = forms.CharField(widget=forms.Textarea, required=False)
+class AuthorForm(forms.ModelForm):
+    class Meta:
+        model = Author
+        fields = ["nick", "email", "author_bio"]

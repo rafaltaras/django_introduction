@@ -1,7 +1,7 @@
 from django.db import models
 
 class Post(models.Model):
-   title = models.CharField(max_length=5)
+   title = models.CharField(max_length=15, unique=True)
    content = models.TextField()
    created = models.DateTimeField(auto_now_add=True)
    modified = models.DateTimeField(auto_now=True)

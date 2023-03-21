@@ -18,8 +18,9 @@
     <form method="post">
         {% csrf_token %}
         {{ form_auth.as_p }}
+        <input type="submit" value="Add author">
         <button type="button">
-            <a href="{% url "posts:post_add" %}">Add author</a>
+            <a href="{% url "posts:post_add" %}">Back to posts list</a>
         </button>
     </form>
     

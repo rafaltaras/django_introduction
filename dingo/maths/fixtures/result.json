@@ -1,0 +1,74 @@
+[
+{
+    "model": "maths.result",
+    "pk": 1,
+    "fields": {
+        "value": 5.0,
+        "error": null
+    }
+},
+{
+    "model": "maths.result",
+    "pk": 2,
+    "fields": {
+        "value": 1.0,
+        "error": null
+    }
+},
+{
+    "model": "maths.result",
+    "pk": 3,
+    "fields": {
+        "value": 3.0,
+        "error": null
+    }
+},
+{
+    "model": "maths.result",
+    "pk": 4,
+    "fields": {
+        "value": 19.0,
+        "error": null
+    }
+},
+{
+    "model": "maths.result",
+    "pk": 5,
+    "fields": {
+        "value": 138.0,
+        "error": null
+    }
+},
+{
+    "model": "maths.result",
+    "pk": 6,
+    "fields": {
+        "value": 536.0,
+        "error": null
+    }
+},
+{
+    "model": "maths.result",
+    "pk": 7,
+    "fields": {
+        "value": 44.0,
+        "error": null
+    }
+},
+{
+    "model": "maths.result",
+    "pk": 8,
+    "fields": {
+        "value": 3.6363636363636362,
+        "error": null
+    }
+},
+{
+    "model": "maths.result",
+    "pk": 9,
+    "fields": {
+        "value": 40.0,
+        "error": null
+    }
+}
+]

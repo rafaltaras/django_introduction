@@ -1,0 +1,123 @@
+[
+{
+    "model": "maths.math",
+    "pk": 1,
+    "fields": {
+        "operation": "add",
+        "a": 3,
+        "b": 2,
+        "created": "2023-03-17T09:54:29.752Z",
+        "result": null
+    }
+},
+{
+    "model": "maths.math",
+    "pk": 2,
+    "fields": {
+        "operation": "mul",
+        "a": 3,
+        "b": 2,
+        "created": "2023-03-17T09:54:44.698Z",
+        "result": null
+    }
+},
+{
+    "model": "maths.math",
+    "pk": 3,
+    "fields": {
+        "operation": "sub",
+        "a": 4,
+        "b": 3,
+        "created": "2023-03-21T10:25:26.471Z",
+        "result": 2
+    }
+},
+{
+    "model": "maths.math",
+    "pk": 4,
+    "fields": {
+        "operation": "sub",
+        "a": 4,
+        "b": 1,
+        "created": "2023-03-21T10:25:34.116Z",
+        "result": 3
+    }
+},
+{
+    "model": "maths.math",
+    "pk": 5,
+    "fields": {
+        "operation": "add",
+        "a": 4,
+        "b": 1,
+        "created": "2023-03-21T10:25:39.088Z",
+        "result": 1
+    }
+},
+{
+    "model": "maths.math",
+    "pk": 6,
+    "fields": {
+        "operation": "add",
+        "a": 4,
+        "b": 15,
+        "created": "2023-03-21T10:25:43.089Z",
+        "result": 4
+    }
+},
+{
+    "model": "maths.math",
+    "pk": 7,
+    "fields": {
+        "operation": "add",
+        "a": 4,
+        "b": 134,
+        "created": "2023-03-21T10:25:47.026Z",
+        "result": 5
+    }
+},
+{
+    "model": "maths.math",
+    "pk": 8,
+    "fields": {
+        "operation": "mul",
+        "a": 4,
+        "b": 134,
+        "created": "2023-03-21T10:25:52.431Z",
+        "result": 6
+    }
+},
+{
+    "model": "maths.math",
+    "pk": 9,
+    "fields": {
+        "operation": "mul",
+        "a": 4,
+        "b": 11,
+        "created": "2023-03-21T10:25:57.234Z",
+        "result": 7
+    }
+},
+{
+    "model": "maths.math",
+    "pk": 10,
+    "fields": {
+        "operation": "div",
+        "a": 40,
+        "b": 11,
+        "created": "2023-03-21T10:26:05.124Z",
+        "result": 8
+    }
+},
+{
+    "model": "maths.math",
+    "pk": 11,
+    "fields": {
+        "operation": "div",
+        "a": 40,
+        "b": 1,
+        "created": "2023-03-21T10:26:09.304Z",
+        "result": 9
+    }
+}
+]
