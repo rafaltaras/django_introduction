@@ -12,7 +12,7 @@ class Post(models.Model):
       blank=True
    )
    def __str__(self):
-        return f"id:{self.id}, title={self.title}, content={self.content}, created={self.created}, modified={self.modified}"
+        return f"id:{self.id}, title={self.title}, content={self.content}"
 
 class Author(models.Model):
     nick = models.CharField(max_length=5)
