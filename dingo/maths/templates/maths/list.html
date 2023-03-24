@@ -3,12 +3,32 @@
 {% block title %}Maths list{% endblock %}
 
 {% block content %}
+   <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">id</th>
+        <th scope="col">a</th>
+        <th scope="col">b</th>
+        <th scope="col">op</th>
+        <th scope="col">result</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tbody>
+            {% for m in maths %}
+                <tr>
+                <th>{{m.id}}</th>
+                <td>{{m.a}}</td>
+                <td>{{m.b}}</td>
+                <td>{{m.operation}}</td>
+                <td>{{m.result}}</td>
+                </tr>
+            {% endfor %}
+    </tbody>
+  </table>
 
-   <ul>
-       {% for m in maths %}
-           <li><a href="{% url "maths:details" m.id %}">{{ m }}</a></li>
-       {% endfor %}
-   </ul>
+
+
    <div class="pagination">
    <span class="step-links">
         <nav aria-label="...">
@@ -36,10 +56,7 @@
                     <option value="add">Add</option>
                     <option value="div">Div</option>
                 </select>
-                <input type="submit" value="select">
-                <button type="button">
-                    <a href="{% url "maths:list_by_operation" %}">Select by operation</a>
-                </button>
+                <input type="submit" value="Select">
         </form>
 
    </span>

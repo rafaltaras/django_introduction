@@ -60,13 +60,14 @@ def div(request, a, b):
 
 def maths_list(request):
     maths = Math.objects.all()
+    results = Result.objects.all()
     paginator = Paginator(maths, 3)
     page_number = request.GET.get('page')
     maths = paginator.get_page(page_number)
     return render(
         request=request,
         template_name="maths/list.html",
-        context={"maths": maths}
+        context={"maths": maths, "results": results}
     )
 
 def maths_list_by_operation(request):

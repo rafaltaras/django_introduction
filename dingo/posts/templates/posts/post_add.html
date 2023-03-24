@@ -5,20 +5,32 @@
 
 {% block content %}
 
-    <div id="header">
-        Existing posts
-    </div>
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Tytuł</th>
+            <th scope="col">Autor</th>
+            <th scope="col">Data</th>
+          </tr>
+        </thead>
+        <tbody>
+            <tbody>
+                {% for r in results_post %}
+                    <tr>
+                        <th><a href="{% url "posts:details" r.id %}">{{ r.title }}</a></th>
+                        <td> {{ r.nick }}</td>
+                        <td>{{ r.created}}</td>
+                    </tr>
+                {% endfor %}
+        </tbody>
+      </table>
 
-    <ul>
-        {% for r in results_post %}
-            <li>{{ r.title }}</li>
-        {% endfor %}
-    </ul>
 
-
-    <form method="post">
+    <form method="POST">
         {% csrf_token %}
-        <!-- {{ form_post.as_p }} -->
+        <div style="color:blue">
+            <p><b>Add post</b></p>
+        </div>
         {% bootstrap_form form_post %}
         <p>
             <label for="id_author">Author:</label>
@@ -32,7 +44,5 @@
         <button type="button">
             <a href="{% url "posts:auth_add" %}">Add new author</a>
         </button>
-    </form>     
-
-
+    </form>   
 {% endblock %}

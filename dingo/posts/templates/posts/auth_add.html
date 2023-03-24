@@ -1,23 +1,36 @@
-{% extends "posts/main.html" %}
+{% extends "greetings/main.html" %}
+{% load bootstrap4 %}
 
 {% block title %}Add author{% endblock %}
 
 {% block content %}
-
-    <div id="header">
-        Already added authors
-    </div>
-
-    <ul>
-        {% for a in results_auth %}
-            <li>{{ a.nick }}</li>
-        {% endfor %}
-    </ul>
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Nick</th>
+            <th scope="col">Email</th>
+          </tr>
+        </thead>
+        <tbody>
+            <tbody>
+                {% for a in results_auth %}
+                    <tr>
+                        <th>{{ a.id }}</a></th>
+                        <td> {{ a.nick }}</td>
+                        <td> {{ a.email }}</td>
+                    </tr>
+                {% endfor %}
+        </tbody>
+      </table>
 
 
     <form method="post">
         {% csrf_token %}
-        {{ form_auth.as_p }}
+        <div style="color:blue">
+            <p><b>Add author</b></p>
+        </div>
+        {% bootstrap_form form_auth %}
         <input type="submit" value="Add author">
         <button type="button">
             <a href="{% url "posts:post_add" %}">Back to posts list</a>

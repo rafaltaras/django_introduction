@@ -42,6 +42,7 @@ def add_post(request):
             )
 
     form_post = PostForm()
+    form_auth = AuthorForm()
     results_post = Post.objects.all()
     author = Author.objects.all()
     return render(
@@ -51,6 +52,7 @@ def add_post(request):
             "results_post": results_post,      
             "form_post": form_post,
             "author": author,
+            "form_auth": form_auth,
         }
     )
 
