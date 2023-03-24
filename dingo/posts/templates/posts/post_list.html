@@ -1,9 +1,8 @@
-{% extends "posts/main.html" %}
+{% extends "greetings/main.html" %}
 
 {% block title %}Posts list{% endblock %}
 
 {% block content %}
-
     <div id="header">
         Posts list
     </div>
@@ -16,4 +15,5 @@
     <button type="button">
         <a href="{% url "posts:post_add" %}">Add new post</a>
     </button>
+    
 {% endblock %}

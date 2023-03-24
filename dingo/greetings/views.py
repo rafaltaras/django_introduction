@@ -1,8 +1,20 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 
-def greetings(request):
-   return HttpResponse("Hello World")
+def about(request):
+   return render(
+        request=request,
+        template_name="greetings/about.html"
+    )
 
-def name(request, name):
-   return HttpResponse(name.capitalize())
+def contact(request):
+      return render(
+        request=request,
+        template_name="greetings/contact.html"
+    )
+
+def welcome(request):
+   return render(
+        request=request,
+        template_name="greetings/main.html"
+    )

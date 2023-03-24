@@ -1,0 +1,47 @@
+{% extends "greetings/main.html" %}
+
+
+{% block title %}Contact{% endblock %}
+
+{% block content %}
+<form>
+    <div class="card">
+          <div class="card-body">
+                <h5 class="card-title">Contact Information</h5>
+                <table>
+                      <tr>
+                            <td>Email: </td>
+                            <td>ronaldo@ronaldo</td>
+                      </tr>
+                      <tr>
+                            <td>Phone Number: </td>
+                            <td>+35665656655</td>
+                      </tr>
+                </table>
+          </div>
+    </div>
+
+    <div class="card">
+          <div class="card-body">
+          </div>
+    </div>
+
+    
+          <div class="card">
+                <div class="card-body">
+                      <div class="mb-1">
+                            <label for="exampleInputEmail1" class="form-label"> If you want me to contact you, please leave your email address </label>
+                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                      </div>
+                      <div class="mb-1 form-check">
+                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                            <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                      </div>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <a href="/" class="btn btn-primary">Go to Main Page</a>
+                </div>
+          </div>
+</form>
+</div>
+
+{% endblock %}

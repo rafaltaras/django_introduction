@@ -1,12 +1,47 @@
-{% extends "maths/main.html" %}
+{% extends "greetings/main.html" %}
 
 {% block title %}Maths list{% endblock %}
 
 {% block content %}
+
    <ul>
        {% for m in maths %}
-           {# <li><a href="/maths/histories/{{ m.id }}">{{ m }}</a></li> #}
            <li><a href="{% url "maths:details" m.id %}">{{ m }}</a></li>
        {% endfor %}
    </ul>
+   <div class="pagination">
+   <span class="step-links">
+        <nav aria-label="...">
+            <ul class="pagination justify-content-center">
+                <li class="page-item">
+                    {% if maths.has_previous %}
+                    <a class="page-link" href="?page={{ maths.previous_page_number }}">Previous</a>
+                    {% endif %}
+                </li>
+                <li class="page-item"><a class="page-link" href="/maths/histories/?page=1">1</a></li>
+                <li class="page-item"><a class="page-link" href="/maths/histories/?page=2">2</a></li>
+                <li class="page-item"><a class="page-link" href="/maths/histories/?page=3">3</a></li>
+                <li class="page-item">
+                    {% if maths.has_next %}
+                    <a class="page-link" href="?page={{ maths.next_page_number }}"">Next</a>
+                    {% endif %}
+                </li>
+            </ul>
+          </nav>
+
+        <form method="POST">
+                {% csrf_token %}
+                <label for="operation">Operation:</label>
+                 <select name="operation" id="operation">
+                    <option value="add">Add</option>
+                    <option value="div">Div</option>
+                </select>
+                <input type="submit" value="select">
+                <button type="button">
+                    <a href="{% url "maths:list_by_operation" %}">Select by operation</a>
+                </button>
+        </form>
+
+   </span>
+   </div>
 {% endblock %}

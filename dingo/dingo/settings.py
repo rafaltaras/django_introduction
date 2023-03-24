@@ -39,6 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'maths',
     'posts',
+    'greetings',
+    'bootstrap4',
+    'django_bootstrap_breadcrumbs',
 ]
 
 MIDDLEWARE = [

@@ -1,7 +1,8 @@
 from django.urls import path
-from .views import greetings, name
+from greetings.views import about, contact, welcome
 
 urlpatterns = [
-   path('', greetings),
-   path('<name>', name)
-]
+   path('', welcome, name="welcome"),
+   path('about/', about, name="about"),
+   path('contact/', contact, name="contact"),
+   ]

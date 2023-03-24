@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <title>{% block title %}Welcome page{% endblock %}</title>
+   {% load django_bootstrap_breadcrumbs %}
+   {% load bootstrap4 %}
+   {# Load CSS and JavaScript #}
+   {% bootstrap_css %}
+   {% bootstrap_javascript jquery='full' %}
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">DIANGO by rafal</a>
+            <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" <a class="nav-link" href="{% url "welcome" %}">Home</a></a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" <a class="nav-link" href="{% url "about" %}">ABOUT</a></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" <a class="nav-link" href="{% url "posts:list" %}">POSTS</a></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" <a class="nav-link" href="{% url "maths:list" %}">MATHS</a></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" <a class="nav-link" href="{% url "contact" %}">CONTACT</a></a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        </head>
+        <body>
+        <div id="content">
+        <div id="header">
+            <ol class="breadcrumb">
+                <li><a href="{% url "welcome" %}">Home</a></li>
+            </ol>
+        </div>
+   {% bootstrap_messages %}
+   <div id="inner-content">
+        {% block content %}
+            <div class="">
+                <img src="/static/greetings/img/dingo.jpg" width = 900px; height = 700px>
+            </div>
+        {% endblock %}
+   </div>
+</div>
+</body>
+</html>
