@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'posts',
     'greetings',
     'bootstrap4',
-    # 'django_bootstrap_breadcrumbs',
+    'django_bootstrap_breadcrumbs',
 ]
 
 MIDDLEWARE = [
