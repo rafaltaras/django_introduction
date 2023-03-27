@@ -18,7 +18,13 @@
                 {% for r in results_post %}
                     <tr>
                         <th><a href="{% url "posts:details" r.id %}">{{ r.title }}</a></th>
-                        <td> {{ r.nick }}</td>
+                        <td>
+                            {% for auth in author %} 
+                                {% if r.author_id == auth.id %}
+                                    {{ auth.nick }} 
+                                {% endif %}
+                            {% endfor %}  
+                        </td>
                         <td>{{ r.created}}</td>
                     </tr>
                 {% endfor %}

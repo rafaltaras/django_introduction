@@ -45,6 +45,7 @@ def add_post(request):
     form_auth = AuthorForm()
     results_post = Post.objects.all()
     author = Author.objects.all()
+    # print(author)
     return render(
         request=request,
         template_name="posts/post_add.html",
