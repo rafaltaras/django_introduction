@@ -1,33 +1,33 @@
 {% extends "registration/main.html" %}
-{% block title %}Posts details{% endblock %}
+{% block title %}Books details{% endblock %}
 
 {% block content %}
     <table>
         <tr>
             <th>Title</th>
-            <td>{{ post.title }}</td>
+            <td>{{ book.title }}</td>
         </tr>
         <tr>
             <th>Content</th>
-            <td>{{ post.content }}</td>
+            <td>{{ book.description }}</td>
        </tr>
         <tr>
             <th>Created</th>
-            <td>{{ post.created }}</td>
+            <td>{{ book.created }}</td>
         </tr>
         <tr>
             <th>Modified</th>
-            <td>{{ post.modified }}</td>
+            <td>{{ book.modified }}</td>
         </tr>
         <tr>
             <th>Author</th>
-            <td>{{ author.nick }}</td>
+            <td>{{ author.name }}</td>
         </tr>
         <tr>
             <th>Image url</th>
-            <td>{{ post.image }}</td>
+            <td>{{ book.image }}</td>
         </tr>
     </table>
 
-   <a href="{% url "posts:list" %}">Back to posts list</a>
+   <a href="{% url "books:list" %}">Back to books list</a>
 {% endblock %}

@@ -4,7 +4,8 @@ from posts.models import Post, Author
 class PostForm(forms.ModelForm):
     class Meta:
         model = Post
-        fields = ["title", "content"]
+        # fields = "__all__"
+        fields = ["title", "content", "author", "image", "tags"] 
 
 class AuthorForm(forms.ModelForm):
     class Meta:

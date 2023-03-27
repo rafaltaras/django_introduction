@@ -1,4 +1,4 @@
-{% extends "greetings/main.html" %}
+{% extends "registration/main.html" %}
 {% load bootstrap4 %}
 
 {% block title %}Add post{% endblock %}
@@ -26,29 +26,31 @@
                             {% endfor %}  
                         </td>
                         <td>{{ r.created}}</td>
+                        <td>{{ r.image}}</td>
+                        <td>{{ r.tags}}</td>
+                        <!-- <td><img src="{{ post.image.url }}"></td> -->
                     </tr>
                 {% endfor %}
         </tbody>
       </table>
 
 
-    <form method="POST">
-        {% csrf_token %}
-        <div style="color:blue">
-            <p><b>Add post</b></p>
-        </div>
-        {% bootstrap_form form_post %}
-        <p>
-            <label for="id_author">Author:</label>
-            <select name="author" id="id_author">
-                {% for auth in author %}
-                    <option value="{{ auth.id }}">{{ auth.nick }} </option>
-                {% endfor %}
-            </select>
-        </p>
-        <input type="submit" value="Add post">
+    <form method="POST" enctype='multipart/form-data'>
+        {% if perms.posts.add_post %}
+        <h2>Add post</h2>
+        <form method="POST" enctype='multipart/form-data'>
+            {% csrf_token %}
+            {% bootstrap_form form_post  %}
+            <input type="submit" value="Add post">
+        </form>
+        {% else %}
+        {% endif %}
+
         <button type="button">
             <a href="{% url "posts:auth_add" %}">Add new author</a>
         </button>
     </form>   
+
+
+
 {% endblock %}

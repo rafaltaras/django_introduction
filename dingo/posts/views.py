@@ -23,11 +23,11 @@ def posts_details(request, id):
 
 def add_post(request):
     if request.method == "POST":
-        form_post = PostForm(data=request.POST)
+        form_post = PostForm(data=request.POST, files=request.FILES)
         author_id = request.POST['author']               
         if form_post.is_valid():
             data = (form_post.cleaned_data)
-            data["author_id"] = author_id
+            # data["author_id"] = author_id
             post = Post.objects.create(**data)
             messages.add_message(
                 request,

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from posts.models import Post, Author
+from posts.models import Post, Author, Tag
 # Register your models here.
 
 class PostAdmin(admin.ModelAdmin):
@@ -12,3 +12,7 @@ admin.site.register(Post, PostAdmin)
 @admin.register(Author)
 class AuthorAdmin(admin.ModelAdmin):
    list_display = ['id', 'nick', 'email', 'author_bio']
+
+@admin.register(Tag)
+class TagAdmin(admin.ModelAdmin):
+   pass

@@ -1,0 +1,86 @@
+{% extends "registration/main.html" %}
+{% load bootstrap4 %}
+
+{% block title %}Books list{% endblock %}
+
+{% block content %}
+    
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Title</th>
+            <th scope="col">Author</th>
+            <th scope="col">Added Date</th>
+            <th scope="col">Image</th>
+            <th scope="col">Tag</th>
+          </tr>
+        </thead>
+        <tbody>
+            <tbody>
+                {% for b in books %}
+                    <tr>
+                        <th><a href="{% url "books:details" b.id %}">{{ b.title }}</a></th>
+                        <td>
+                            {% for auth in author %} 
+                                {% if b.author_id == auth.id %}
+                                    {{ auth.name }} 
+                                {% endif %}
+                            {% endfor %}  
+                        </td>
+                        <td>{{ b.created}}</td>
+                        <td>{{ b.book_cover_image}}</td>
+                        <td>{{ b.tags}}</td>
+                    </tr>
+                {% endfor %}
+        </tbody>
+      </table>
+
+        <div class="pagination">
+            <span class="step-links">
+                <nav aria-label="...">
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item">
+                            {% if books.has_previous %}
+                            <a class="page-link" href="?page={{ books.previous_page_number }}">Previous</a>
+                            {% endif %}
+                        </li>
+                        <li class="page-item"><a class="page-link" href="/books/list/?page=1">1</a></li>
+                        <li class="page-item"><a class="page-link" href="/books/list/?page=2">2</a></li>
+                        <li class="page-item"><a class="page-link" href="/books/list/?page=3">3</a></li>
+                        <li class="page-item">
+                            {% if books.has_next %}
+                            <a class="page-link" href="?page={{ books.next_page_number }}"">Next</a>
+                            {% endif %}
+                        </li>
+                    </ul>
+                </nav>         
+            </span>
+        </div>
+
+      <form method="POST" enctype='multipart/form-data'>
+            {% if perms.posts.authors %}
+                <h3></h3>
+                <h3>Add post</h3>
+                <form method="POST" enctype='multipart/form-data'>
+                    {% csrf_token %}
+                    {% bootstrap_form form_book %}
+                    <input type="submit" value="Add book">
+                </form>
+            {% endif %}
+        </form>   
+
+        <form action={% url "books:add_author" %}  method="POST" enctype='multipart/form-data'>
+            {% if perms.authors.add_author %}
+                <h3></h3>
+                <h3>Add author</h3>
+                <form method="POST" enctype='multipart/form-data'>
+                    {% csrf_token %}
+                    {% bootstrap_form form_auth  %}
+                    <input type="submit" value="Add author">
+                </form>
+            {% endif %}
+        </form>   
+
+
+
+{% endblock %}

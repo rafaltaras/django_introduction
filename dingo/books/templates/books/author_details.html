@@ -1,0 +1,34 @@
+{% extends "registration/main.html" %}
+{% block title %}Author details{% endblock %}
+
+{% block content %}
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Surname</th>
+            <th scope="col">Description</th>
+            <th scope="col">Author's books</th>
+          </tr>
+        </thead>
+        <tbody>
+                    <tr>
+                        <th>{{ author.name }}</a></th>
+                        <td>{{ author.surname }}</td>
+                        <td>{{ author.author_bio }}</td>
+                        <td>
+                            {% for b in books %} 
+                                {% if b.author_id == author.id %}
+                                    {{ b.title }} 
+                                {% endif %}
+                            {% endfor %} 
+                        </td>
+                    </tr>
+                    <tr>
+                        <a href="{% url "books:authors_list" %}">Back to authors list</a>
+                    </tr>
+        </tbody>
+      </table>
+
+   
+{% endblock %}
