@@ -8,8 +8,11 @@ __pycache__/
 *.so
 
 #venv
-.venv/
-.env/
+.env
+.venv
+env/
+venv/
+ENV/
 
 # Distribution / packaging
 bin/
