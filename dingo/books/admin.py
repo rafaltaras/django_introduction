@@ -1,6 +1,6 @@
 # books/admin.py
 from django.contrib import admin
-from books.models import Book, Author, Tag
+from books.models import Book, Author, Tag, Borrow
 # Register your models here.
 
 class BookAdmin(admin.ModelAdmin):
@@ -17,3 +17,8 @@ class AuthorAdmin(admin.ModelAdmin):
 @admin.register(Tag)
 class TagAdmin(admin.ModelAdmin):
    pass
+
+@admin.register(Borrow)
+class BorrowAdmin(admin.ModelAdmin):
+   pass
+   # list_display = ["book", "is_returned", "user"]

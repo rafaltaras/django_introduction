@@ -27,6 +27,10 @@
             <th>Image url</th>
             <td>{{ book.image }}</td>
         </tr>
+        <tr>
+            <th>Available</th>
+            <td>{{borrow.is_returned}}</td>
+        </tr>
     </table>
 
    <a href="{% url "books:list" %}">Back to books list</a>

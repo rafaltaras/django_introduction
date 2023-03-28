@@ -2,17 +2,18 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from django.contrib import messages
 from .forms import BookForm, AuthorForm
-from books.models import Book, Author
+from books.models import Book, Author, Borrow
 from django.core.paginator import Paginator
 from django.contrib.auth.decorators import login_required
 
 def books_details(request, id):
     book = Book.objects.get(id=id)
     author = Author.objects.get(id=id)
+    borrow = Borrow.objects.get(id=id)
     return render(
         request=request,
         template_name="books/book_details.html",
-        context={"book": book, "author": author}
+        context={"book": book, "author": author, "borrow":borrow}
     )
 
 def authors_list(request):

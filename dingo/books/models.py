@@ -1,4 +1,7 @@
 from django.db import models
+from datetime import datetime, timedelta
+from django.utils import timezone
+from django.contrib.auth.models import User
 
 class Book(models.Model):
    title = models.CharField(max_length=15, unique=True)
@@ -28,3 +31,16 @@ class Tag(models.Model):
    created = models.DateTimeField(auto_now_add=True)
    def __str__(self):
       return f"{self.word}"
+   
+class Borrow(models.Model):
+   book = models.ForeignKey(
+      'books.Book',
+      on_delete=models.PROTECT,
+      unique=True
+   )
+   user = models.ForeignKey(
+        User, on_delete=models.PROTECT, editable=False, related_name='books', null=True, blank=True)
+   rent_date = models.DateTimeField(auto_now_add=True, editable=False)
+   back_date = models.DateField(
+        default=datetime.now()+timedelta(days=30))
+   is_returned = models.BooleanField(default=True)
