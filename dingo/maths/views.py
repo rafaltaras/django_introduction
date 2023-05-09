@@ -14,6 +14,7 @@ def add(request, a, b):
     wynik = a + b
     c = {"a": a, "b": b, "operacja": "+", "wynik": wynik, "title": "dodawanie"}
     result = Result.objects.get_or_create(value=wynik)[0]
+    print(result)
     Math.objects.create(operation='add', a=a, b=b, result=result)
     return render(
         request=request,
@@ -94,33 +95,39 @@ def math_details(request, id):
         context={"math": math}
     )
 
+
 def results_list(request):
     if request.method == "POST":
-        form = ResultForm(data=request.POST)
-        
-        if form.is_valid():
-            if form.cleaned_data['error'] == '':
-                form.cleaned_data['error'] = None
-            Result.objects.get_or_create(form.cleaned_data)
+        value = request.POST['value'] or None
+        error = request.POST['error'] or None
+        if value and error:
+            messages.add_message(
+                request,
+                messages.ERROR,
+                "Błąd! Podano jednocześnie value i error. Podaj tylko jedną z tych wartości"
+            )
+        elif value or error:
+            Result.objects.get_or_create(
+                value=value,
+                error=error
+            )
             messages.add_message(
                 request,
                 messages.SUCCESS,
                 "Utworzono nowy Result!!"
             )
+
         else:
             messages.add_message(
                 request,
                 messages.ERROR,
-                form.errors['__all__']
+                "Błąd! Nie podano wartości!!"
             )
 
-    form = ResultForm()
     results = Result.objects.all()
+
     return render(
         request=request,
         template_name="maths/results.html",
-        context={
-            "results": results,
-            "form": form
-        }
+        context={"results": results}
     )

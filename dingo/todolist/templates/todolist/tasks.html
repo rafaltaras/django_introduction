@@ -1,0 +1,51 @@
+{% extends "registration/main.html" %}
+{% load bootstrap4 %}
+
+{% block title %}Add task{% endblock %}
+
+{% block content %}
+
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Status</th>
+            <th scope="col">Zadanie</th>
+            <th scope="col">Opis</th>
+            <th scope="col">Autor</th>
+            <th scope="col">Data</th>
+          </tr>
+        </thead>
+        <tbody>
+            <tbody>
+                {% for t in tasks %}
+                    <tr>
+                        <th>{{ t.done }}</th>
+                        <th>{{ t.task }}</th>
+                        <td>{{ t.content}}</td>
+                        <td>
+                            {% for auth in author %} 
+                                {% if t.author_id == auth.id %}
+                                    {{ auth.name }} 
+                                {% endif %}
+                            {% endfor %}  
+                        </td>
+                        <td>{{ t.created}}</td>
+                        
+                        <!-- <td><img src="{{ post.image.url }}"></td> -->
+                    </tr>
+                {% endfor %}
+        </tbody>
+      </table>
+
+      <form method="POST" enctype='multipart/form-data'>
+        {% if perms.todolist.add_task %}
+        <h2>Add task</h2>
+        <form method="POST" enctype='multipart/form-data'>
+            {% csrf_token %}
+            {% bootstrap_form form  %}
+            <input type="submit" value="Add task">
+        </form>
+        {% else %}
+        {% endif %}
+
+{% endblock %}

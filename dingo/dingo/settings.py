@@ -14,10 +14,9 @@ LOGOUT_REDIRECT_URL = "/admin/login/?next=/admin/"
 SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = config('DEBUG', cast=bool)
+DEBUG = True
 
 ALLOWED_HOSTS = []
-
 
 # Application definition
 
@@ -35,6 +34,7 @@ INSTALLED_APPS = [
     'maths',
     'posts',
     'books',
+    'todolist',
     'greetings',
     'bootstrap4',
     # 'django_bootstrap_breadcrumbs',

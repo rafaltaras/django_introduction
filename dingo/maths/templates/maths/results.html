@@ -3,17 +3,22 @@
 {% block title %}Maths list{% endblock %}
 
 {% block content %}
-   <ul>
-       {% for r in results %}
-           <li>{{ r }}</li>
-       {% endfor %}
-   </ul>
+    <ul>
+        {% for r in results %}
+            <li>Value = {{ r.value }} and error = {{ r.error }}</li>
+        {% endfor %}
+    </ul>
 
-   <form method="post">
+    <form method="post">
     {% csrf_token %}
-    {{ form.as_table }}
-    <input type="submit" value="go">
- </form>
+    <label for="value">value: </label>
+    <input type="text" name="value" id="value">
+    <br>
+    <label for="error">error: </label>
+    <input type="text" name="error" id="value">
+    <br>
+    <input type="submit" value="Go">
+    </form> 
 
    
 {% endblock %}

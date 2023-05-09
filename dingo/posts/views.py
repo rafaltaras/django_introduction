@@ -59,10 +59,10 @@ def add_post(request):
 
 def add_author(request):
     if request.method == "POST":
-        form_auth = AuthorForm(data=request.POST)
-                
+        form_auth = AuthorForm(data=request.POST) 
+
         if form_auth.is_valid():
-            Author.objects.create(**form_auth.cleaned_data)
+            Author.objects.create(**form_auth.cleaned_data)      
             messages.add_message(
                 request,
                 messages.SUCCESS,
@@ -71,8 +71,8 @@ def add_author(request):
         else:
             messages.add_message(
                 request,
-                messages.ERROR,
-                form_auth.errors['__all__']
+                messages.WARNING,
+                "Wrong email !!"
             )
 
     form_auth = AuthorForm()

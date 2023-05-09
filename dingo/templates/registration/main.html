@@ -31,6 +31,9 @@
                     <li class="nav-item">
                         <a class="nav-link" <a class="nav-link" href="{% url "contact" %}">CONTACT</a></a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" <a class="nav-link" href="{% url "todolist:list" %}">To Do List</a></a>
+                    </li>
                     {% if user.is_authenticated %}
                     <p class="nav-link">
                         {{ user.username }} | <a href="{% url 'logout' %}">logout</a>
@@ -53,7 +56,10 @@
    <div id="inner-content">
         {% block content %}
             <div class="">
-                <img src="/static/greetings/img/dingo.jpg" width = 900px; height = 700px>
+                <body>
+                <h2 style="margin:40px 40px; text-align: center;">Welcome to my first app </h2>
+                <img src="/static/greetings/img/dingo.jpg" width = 30%; height = 20% style="margin:40px 40%">
+                </body>
             </div>
         {% endblock %}
    </div>
